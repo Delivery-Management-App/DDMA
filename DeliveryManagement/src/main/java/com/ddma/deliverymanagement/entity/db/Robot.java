@@ -39,6 +39,10 @@ public class Robot implements Serializable {
     @JsonProperty("item_type")
     private RobotType type;
 
+    @ManyToOne
+    @JoinColumn(name = "dispatch_station_id", nullable = false)
+    private DispatchStation dispatchStation;
+
     public String getId() {
         return id;
     }
