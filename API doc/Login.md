@@ -40,8 +40,8 @@ Provide  email and password of Account.
 **Content**:
 ```json
 {
-    "id": "[user_id(PK)]",
-    "token": ".........."
+    "user_id": "1234",
+    "name": "Rick"
 }
 ```
 
