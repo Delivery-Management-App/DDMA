@@ -25,6 +25,7 @@ public class RegisterDao {
         } catch (PersistenceException | IllegalStateException ex) {
             // if hibernate throws this exception, it means the user already be register
             ex.printStackTrace();
+            session.getTransaction().rollback();
             return false;
         } finally {
             if (session != null) session.close();
