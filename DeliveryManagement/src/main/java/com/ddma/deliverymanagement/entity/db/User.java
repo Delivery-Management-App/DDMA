@@ -32,6 +32,19 @@ public class User implements Serializable {
     @JsonProperty("last_name")
     private String lastName;
 
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="user_id")
+    private Set<Order> orders = new HashSet<>();
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
     public String getUserId() {
         return userId;
     }
