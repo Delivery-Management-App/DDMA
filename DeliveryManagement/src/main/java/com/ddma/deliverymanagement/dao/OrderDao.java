@@ -35,7 +35,7 @@ public class OrderDao {
         return true;
     }
     // cancel a order
-    public void unsetFavoriteItem(String userId, String ordernum) {
+    public boolean unsetFavoriteItem(String userId, String ordernum) {
         Session session = null;
 
         try {
@@ -49,8 +49,10 @@ public class OrderDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             session.getTransaction().rollback();
+            return false;
         } finally {
             if (session != null) session.close();
         }
+        return true;
     }
 }
